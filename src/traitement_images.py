@@ -1,6 +1,7 @@
 import cv2
 import os
 import numpy as np
+from matplotlib import pyplot as plt
 
 from src.constantes import Formes
 
@@ -72,3 +73,26 @@ class TraitementImages:
                     break
 
         cv2.destroyAllWindows()
+
+    def afficher_histogramme_tout(self):
+        for image in self.images:
+            self._afficher('Image originale', image)
+
+            bleu, vert, rouge = cv2.split(image)  # Division en canaux de couleur
+
+            hist_bleu = cv2.calcHist([bleu], [0], None, [256], [0, 256])
+            hist_vert = cv2.calcHist([vert], [0], None, [256], [0, 256])
+            hist_rouge = cv2.calcHist([rouge], [0], None, [256], [0, 256])
+
+            plt.plot(hist_bleu, color='blue', label='Bleu')
+            plt.plot(hist_vert, color='green', label='Vert')
+            plt.plot(hist_rouge, color='red', label='Rouge')
+
+            plt.title('Histogramme couleur de l\'image')
+            plt.xlabel('Intensité des pixels')
+            plt.ylabel('Nombre de pixels')
+            plt.legend()
+
+            plt.savefig('histogramme.png')
+            plt.close()
+
