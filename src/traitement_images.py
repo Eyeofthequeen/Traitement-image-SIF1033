@@ -96,3 +96,8 @@ class TraitementImages:
             plt.savefig('histogramme.png')
             plt.close()
 
+            hist_image = cv2.imread('histogramme.png')
+            cv2.imshow('Histogramme', hist_image)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+
