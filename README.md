@@ -4,8 +4,8 @@ Notre équipe de trois personnes travaillera sur le développement d'un programm
 Pour la première phase de ce projet, nous commencerons par la détection de quadrilatères.
 
 ## Membres de l'équipe
-Jérémy Veillette
-Dylan Sicard-Smith
+Jérémy Veillette <br>
+Dylan Sicard-Smith <br>
 Miriam Davydov
 
 ## Description
