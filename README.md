@@ -3,6 +3,11 @@ Notre équipe de trois personnes travaillera sur le développement d'un programm
 
 Pour la première phase de ce projet, nous commencerons par la détection de quadrilatères.
 
+## Membres de l'équipe
+Jérémy Veillette
+Dylan Sicard-Smith
+Miriam Davydov
+
 ## Description
 Le script offre une interface en ligne de commande qui lit des photos et affiche l'image original ainsi que les images objets (régions ROI ou contours) présents dans les images.
 
