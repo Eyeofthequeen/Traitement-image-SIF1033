@@ -3,7 +3,15 @@ import os
 import numpy as np
 from matplotlib import pyplot as plt
 
-from src.constantes import Formes
+from src.constantes import Formes, Couleurs
+from src.drapeaux.canada import Canada
+from src.drapeaux.rectangles_verticales import RectanglesVerticales
+
+
+Drapeaux = [
+    Canada('Canada', [Couleurs.BLANC, Couleurs.ROUGE]),
+    RectanglesVerticales('France', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE])
+]
 
 
 class TraitementImages:
@@ -74,21 +82,33 @@ class TraitementImages:
 
         cv2.destroyAllWindows()
 
+    def detecter_drapeaux_de_chaque_image(self):
+        for image in self.images:
+            print(image.fichier)
+            for drapeau in Drapeaux:
+                if drapeau.couleurs_valides(list(image.couleurs)):
+                    print(f"{drapeau.nom} - Couleurs Valides")
+
     def afficher_contours(self):
         for image in self.images:
-            self._afficher('Image originale', image)
+            # Convertir l'image en espace de couleur HSV
+            hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-            # Convertir l'image en niveaux de gris
-            gris = cv2.cvtColor(image, cv2.COLOR_BAYER_BG2GRAY)
+            # Définir les plages de seuil pour le rouge et le blanc
+            lower_red = np.array([0, 100, 100])
+            upper_red = np.array([10, 255, 255])
+            lower_white = np.array([0, 0, 200])
+            upper_white = np.array([180, 30, 255])
 
-            # Appliquer un flou Gaussien pour réduire le bruit
-            flou = cv2.GaussianBlur(gris, (5, 5), 0)
+            # Seuillage pour détecter le rouge et le blanc
+            mask_red = cv2.inRange(hsv, lower_red, upper_red)
+            mask_white = cv2.inRange(hsv, lower_white, upper_white)
+
+            # Combinaison des masques pour obtenir les zones rouges et blanches
+            mask = cv2.bitwise_or(mask_red, mask_white)
 
             # Détection des contours
-            contours = cv2.Canny(flou, 50, 150)
-
-            # Trouver les contours dans l'image
-            contours, _ = cv2.findContours(edges.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            contours, _ = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
             # Dessiner les contours sur l'image originale
             cv2.drawContours(image, contours, -1, (0, 255, 0), 2)

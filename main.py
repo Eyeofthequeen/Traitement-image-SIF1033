@@ -24,7 +24,7 @@ def main():
     traitement = TraitementImages(images)
     # traitement.afficher_tout(Formes.CARRE)
 
-    traitement.afficher_contours()
+    traitement.detecter_drapeaux_de_chaque_image()
 
 
     if args.histogramme:
