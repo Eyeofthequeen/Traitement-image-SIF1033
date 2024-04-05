@@ -50,3 +50,14 @@ class Image:
 
         for rgb in couleurs_uniques:
             self.couleurs.add(_convertir_rgb_vers_nom_couleur(rgb))
+
+    def redimensionner(self, largueur, hauteur=None):
+        """
+        Si la hauteur est None, elle sera ajustée automatiquement
+        """
+        dimensions = (largueur, hauteur)
+        if hauteur is None:
+            hauteur_originale, largeur_originale = self.image.shape[:2]
+            ratio = largueur / largeur_originale
+            dimensions = (largueur, int(hauteur_originale * ratio))
+        return cv2.resize(self.image, dimensions)

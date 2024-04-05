@@ -1,8 +1,10 @@
 import cv2
 import os
 import numpy as np
+from typing import List
 from matplotlib import pyplot as plt
 
+from src.image import Image
 from src.constantes import Formes, Couleurs
 from src.drapeaux.canada import Canada
 from src.drapeaux.rectangles_verticales import RectanglesVerticales
@@ -15,7 +17,7 @@ Drapeaux = [
 
 
 class TraitementImages:
-    def __init__(self, images):
+    def __init__(self, images: List[Image]):
         self.images = images
         self.fenetres = []
 
@@ -84,10 +86,15 @@ class TraitementImages:
 
     def detecter_drapeaux_de_chaque_image(self):
         for image in self.images:
+            self._afficher(f"Origin - {image.fichier}", image.redimensionner(600))
             print(image.fichier)
             for drapeau in Drapeaux:
                 if drapeau.couleurs_valides(list(image.couleurs)):
                     print(f"{drapeau.nom} - Couleurs Valides")
+
+            while True:
+                if cv2.waitKeyEx(1) == 27:  # Faire escape pour quitter ou pour passer à l'image suivante
+                    break
 
     def afficher_contours(self):
         for image in self.images:
