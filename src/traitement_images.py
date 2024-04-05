@@ -17,7 +17,7 @@ class TraitementImages:
     def _enregistrer(self, nom_image, image):
         cv2.imwrite(nom_image, image)
 
-    def _afficher_images_region(self, image, contours, prefixe="roi_"): # ROI
+    def _afficher_images_region(self, image, contours, prefixe="roi_"):  # ROI
         for i, contour in enumerate(contours):
             # Créer une image vide avec les mêmes dimensions que l'image originale
             mask = image.copy()
@@ -25,7 +25,7 @@ class TraitementImages:
 
             # Dessiner le contour sur l'image vide
             cv2.drawContours(mask, [contour], -1, (255, 255, 255), thickness=cv2.FILLED)
-            contour_image = cv2.bitwise_and(image, mask) # Extraire la région
+            contour_image = cv2.bitwise_and(image, mask)  # Extraire la région
             self._afficher(f"{prefixe}{i+1}", contour_image)
 
     def detecter_contours_quadrilateres(self, image, carre=True, epsilon=0.04):
@@ -42,7 +42,7 @@ class TraitementImages:
                 # Mesure qui représente la proportion entre la largeur et la hauteur d'un objet
                 rapport_aspect = float(w) / h
 
-                tolerence = 0.1 # Tolérance du rapport d'aspect a considérer une forme un carré
+                tolerence = 0.1  # Tolérance du rapport d'aspect a considérer une forme un carré
                 est_carre = 1 - tolerence <= rapport_aspect <= 1 + tolerence
 
                 if est_carre and carre:
@@ -69,10 +69,35 @@ class TraitementImages:
             self._afficher_images_region(image, contours)
 
             while True:
-                if cv2.waitKeyEx(1) == 27: # Faire escape pour quitter
+                if cv2.waitKeyEx(1) == 27:  # Faire escape pour quitter
                     break
 
         cv2.destroyAllWindows()
+
+    def afficher_contours(self):
+        for image in self.images:
+            self._afficher('Image originale', image)
+
+            # Convertir l'image en niveaux de gris
+            gris = cv2.cvtColor(image, cv2.COLOR_BAYER_BG2GRAY)
+
+            # Appliquer un flou Gaussien pour réduire le bruit
+            flou = cv2.GaussianBlur(gris, (5, 5), 0)
+
+            # Détection des contours
+            contours = cv2.Canny(flou, 50, 150)
+
+            # Trouver les contours dans l'image
+            contours, _ = cv2.findContours(edges.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+            # Dessiner les contours sur l'image originale
+            cv2.drawContours(image, contours, -1, (0, 255, 0), 2)
+
+            self._afficher('Contours', image)
+
+            while True:
+                if cv2.waitKeyEx(1) == 27:  # Faire escape pour quitter
+                    break
 
     def afficher_histogramme_tout(self):
         for image in self.images:
@@ -100,4 +125,3 @@ class TraitementImages:
             cv2.imshow('Histogramme', hist_image)
             cv2.waitKey(0)
             cv2.destroyAllWindows()
-
