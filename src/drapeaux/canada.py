@@ -21,9 +21,10 @@ class Canada(Drapeau):
                 erables.append(approx)
         if len(erables) > 0:
             image.dessiner_contours(
-                f"Contours des rectangles {'verticaux'}", erables
+                f"Contours des feuilles d'érable", erables
             )
-
+        if len(erables)!=1: #il ne doit y avoir qu'une seule feuille
+            return False
         return len(erables) == self.erable
 
     def valider(self, image: Image):
