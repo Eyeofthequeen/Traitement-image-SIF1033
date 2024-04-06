@@ -21,7 +21,7 @@ class Image:
             Couleurs.ROUGE: ([150, 0, 0], [255, 100, 100]),
             Couleurs.VERT: ([0, 100, 0], [100, 255, 100]),
             Couleurs.BLEU: ([0, 0, 100], [100, 100, 255]),
-            Couleurs.JAUNE: ([200, 200, 0], [255, 255, 100]),
+            Couleurs.JAUNE: ([200, 175, 0], [255, 255, 100]),
         }
 
         # Vérification de l'appartenance à une plage de couleur
