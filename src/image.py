@@ -62,3 +62,9 @@ class Image:
 
     def convertir_niveaux_de_gris(self):
         return cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
+
+    def dessiner_contours(self, titre, contours):
+        tmp = self.image.copy()
+        cv2.drawContours(self.image, contours, -1, (0, 255, 0), 2)
+        cv2.imshow(titre, self.redimensionner(600))
+        self.image = tmp

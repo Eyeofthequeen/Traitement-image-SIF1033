@@ -28,8 +28,10 @@ class DrapeauAvecRectangles(Drapeau):
                 if w > h and not self.vertical:
                     rectangles.append(approx)
 
-        cv2.drawContours(image.image, rectangles, -1, (0, 255, 0), 2)
-        cv2.imshow('Contours des rectangles verticaux', image.image)
+        if len(rectangles) > 0:
+            image.dessiner_contours(
+                f"Contours des rectangles {'verticaux' if self.vertical else 'horizontaux'}", rectangles
+            )
 
         return len(rectangles) == self.nb_rectangles
         
