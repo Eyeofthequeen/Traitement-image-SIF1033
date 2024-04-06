@@ -7,15 +7,10 @@ from src.outils import verifier_avec_marge_erreur
 
 
 class DrapeauAvecEtoiles(Drapeau):
-    def __init__(self, nom, couleurs, nb_etoiles=50, marge_erreur=2):
+    def __init__(self, nom, couleurs, nb_etoiles=1, marge_erreur=1):
         super().__init__(nom, couleurs)
         self.nb_etoiles = nb_etoiles
         self.marge_erreur = marge_erreur
-
-    def _valider_avec_marge_erreur(self, nb_etoiles_detectees):
-        borne_inf = self.nb_etoiles - self.marge_erreur
-        borne_sup = self.nb_etoiles + self.marge_erreur
-        return borne_inf <= nb_etoiles_detectees or nb_etoiles_detectees <= borne_sup
 
     def _image_contient_etoile(self, image):
         gris = image.convertir_niveaux_de_gris()
