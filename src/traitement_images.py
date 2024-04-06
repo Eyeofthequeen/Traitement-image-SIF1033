@@ -10,6 +10,7 @@ from src.drapeaux.canada import Canada
 from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles
 from src.drapeaux.etatsUnis import EtatsUnis
 from src.drapeaux.drapeau_avec_cercles import DrapeauAvecCercles
+from src.drapeaux.drapeau_avec_etoiles import DrapeauAvecEtoiles
 from src.drapeaux.etatsUnis import EtatsUnis
 
 
@@ -18,7 +19,8 @@ Drapeaux = [
     DrapeauAvecRectangles('France', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE]),
     DrapeauAvecRectangles('Russie', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE], vertical=False),
     DrapeauAvecRectangles('Espagne', [Couleurs.JAUNE, Couleurs.ROUGE], vertical=False),
-    EtatsUnis('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU]),
+    DrapeauAvecEtoiles('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], nb_etoiles=50),
+    DrapeauAvecEtoiles('Vietnam', [Couleurs.ROUGE, Couleurs.JAUNE]),
     DrapeauAvecCercles('Japon', [Couleurs.BLANC, Couleurs.ROUGE]),
     DrapeauAvecCercles('Bangladesh', [Couleurs.VERT, Couleurs.ROUGE]),
     DrapeauAvecRectangles('Italie', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC]),

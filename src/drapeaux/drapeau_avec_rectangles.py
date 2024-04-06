@@ -27,11 +27,14 @@ class DrapeauAvecRectangles(Drapeau):
                 
                 if rect_vertical or rect_horizontal:
                     rectangles.append(approx)
-                    image.dessiner_contours(
-                        f"Contours des rectangles {'verticaux' if self.vertical else 'horizontaux'}", rectangles
-                    )
 
-        return len(rectangles) == self.nb_rectangles
+        nb_rectangles_valide = len(rectangles) == self.nb_rectangles
+        if nb_rectangles_valide:
+            image.dessiner_contours(
+                f"Contours des rectangles {'verticaux' if self.vertical else 'horizontaux'} pour {image.fichier}", rectangles
+            )
+
+        return nb_rectangles_valide
         
     def valider(self, image: Image):
         return self.couleurs_valides(image.couleurs) and self._image_contient_rectangles(image)
