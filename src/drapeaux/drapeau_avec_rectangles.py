@@ -27,7 +27,7 @@ class DrapeauAvecRectangles(Drapeau):
                 
                 if w > h and not self.vertical:
                     rectangles.append(approx)
-
+                    
         if len(rectangles) > 0:
             image.dessiner_contours(
                 f"Contours des rectangles {'verticaux' if self.vertical else 'horizontaux'}", rectangles
