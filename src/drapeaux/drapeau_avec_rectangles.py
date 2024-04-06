@@ -22,16 +22,14 @@ class DrapeauAvecRectangles(Drapeau):
             approx = cv2.approxPolyDP(contour, 0.02 * perimetre, True)
             if len(approx) == 4:  # 4 côtés donc rectangle
                 x, y, w, h = cv2.boundingRect(contour)
-                if h > w and self.vertical:  # Si la hauteur est plus grande que la largeur (rectangle vertical)
-                    rectangles.append(approx)
+                rect_vertical = h > w and self.vertical
+                rect_horizontal = w > h and not self.vertical
                 
-                if w > h and not self.vertical:
+                if rect_vertical or rect_horizontal:
                     rectangles.append(approx)
-                    
-        if len(rectangles) > 0:
-            image.dessiner_contours(
-                f"Contours des rectangles {'verticaux' if self.vertical else 'horizontaux'}", rectangles
-            )
+                    image.dessiner_contours(
+                        f"Contours des rectangles {'verticaux' if self.vertical else 'horizontaux'}", rectangles
+                    )
 
         return len(rectangles) == self.nb_rectangles
         

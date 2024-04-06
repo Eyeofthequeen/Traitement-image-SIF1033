@@ -1,14 +1,15 @@
 import cv2
 from src.drapeaux.drapeau import Drapeau
+from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles
 from src.image import Image
 
 
-class Canada(Drapeau):
-    def __init__(self, nom, couleurs, erable=1):
-        super().__init__(nom, couleurs)
-        self.erable=erable
+class Canada(DrapeauAvecRectangles):
+    def __init__(self, nom, couleurs):
+        super().__init__(nom, couleurs, nb_rectangles=2)
+        self.nb_erables = 1
 
-    def _image_contient_erable(self, image):
+    def _image_contient_erables(self, image):
         gris = image.convertir_niveaux_de_gris()
 
         seuil_adaptatif = cv2.adaptiveThreshold(gris, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
@@ -16,16 +17,14 @@ class Canada(Drapeau):
 
         erables = []
         for contour in contours:
-            approx = cv2.approxPolyDP(contour, 0.01* cv2.arcLength(contour, True), True)
-            if len(approx) == 21:  # 21 côté égal la feuille d'érable sans la tige
+            approx = cv2.approxPolyDP(contour, 0.01 * cv2.arcLength(contour, True), True)
+            if 18 <= len(approx) <= 24:  # Plage pour approximer une feuille d'érable
                 erables.append(approx)
-        if len(erables) > 0:
-            image.dessiner_contours(
-                f"Contours des feuilles d'érable", erables
-            )
-        if len(erables)!=1: #il ne doit y avoir qu'une seule feuille
-            return False
-        return len(erables) == self.erable
+                image.dessiner_contours("Contours feuilles erables", [approx])
+
+        return len(erables) == self.nb_erables
 
     def valider(self, image: Image):
-        return self.couleurs_valides(image.couleurs) and self._image_contient_erable(image)
+        return (self.couleurs_valides(image.couleurs)
+                and self._image_contient_rectangles(image)
+                and self._image_contient_erables(image))
