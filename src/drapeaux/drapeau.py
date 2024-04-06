@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from src.image import Image
+
 
 class Drapeau:
     def __init__(self, nom, couleurs):
@@ -8,3 +10,7 @@ class Drapeau:
 
     def couleurs_valides(self, couleurs):
         return sorted(self.couleurs) == sorted(couleurs)
+
+    @abstractmethod
+    def valider(self, image: Image):
+        pass
