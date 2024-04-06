@@ -9,6 +9,7 @@ class Drapeau:
         self.couleurs = couleurs
 
     def couleurs_valides(self, couleurs):
+        print(couleurs)
         return sorted(self.couleurs) == sorted(couleurs)
 
     @abstractmethod
