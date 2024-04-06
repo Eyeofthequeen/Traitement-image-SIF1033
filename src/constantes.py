@@ -8,3 +8,4 @@ class Couleurs:
     NOIR = "noir"
     VERT = "vert"
     BLEU = "bleu"
+    JAUNE = "jaune"

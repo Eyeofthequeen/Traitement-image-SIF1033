@@ -20,6 +20,7 @@ class Image:
             Couleurs.ROUGE: np.array([255, 0, 0]),
             Couleurs.VERT: np.array([0, 255, 0]),
             Couleurs.BLEU: np.array([0, 0, 255]),
+            Couleurs.JAUNE: np.array([255, 255, 0]),
             # Ajoutez d'autres couleurs au besoin
         }
 

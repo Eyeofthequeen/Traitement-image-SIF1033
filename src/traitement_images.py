@@ -13,7 +13,8 @@ from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles
 Drapeaux = [
     Canada('Canada', [Couleurs.BLANC, Couleurs.ROUGE]),
     DrapeauAvecRectangles('France', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE]),
-    DrapeauAvecRectangles('Russie', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE], vertical=False)
+    DrapeauAvecRectangles('Russie', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE], vertical=False),
+    DrapeauAvecRectangles('Espagne', [Couleurs.JAUNE, Couleurs.ROUGE], vertical=False)
 ]
 
 
