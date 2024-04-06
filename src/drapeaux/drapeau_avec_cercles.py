@@ -17,5 +17,4 @@ class DrapeauAvecCercles(Drapeau):
         return cercles is not None and len(cercles[0]) >= self.nb_cercles
 
     def valider(self, image: Image):
-        print(image.couleurs)
         return self.couleurs_valides(image.couleurs) and self._image_contient_cercles(image)

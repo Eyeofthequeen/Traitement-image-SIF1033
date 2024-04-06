@@ -46,6 +46,7 @@ class TraitementImages:
             for drapeau in Drapeaux:
                 if drapeau.valider(image):
                     print(f"{drapeau.nom} - Valide")
+                    break
 
             while True:
                 if cv2.waitKeyEx(1) == 27:  # Faire escape pour quitter ou pour passer à l'image suivante
