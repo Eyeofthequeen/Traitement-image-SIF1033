@@ -14,25 +14,23 @@ class Image:
         self._identifier_couleurs_unique()
 
     def _convertir_rgb_vers_nom_couleur(self, rgb):
+        # Définition des plages de couleur pour chaque couleur
         couleurs = {
-            Couleurs.BLANC: np.array([255, 255, 255]),
-            Couleurs.NOIR: np.array([0, 0, 0]),
-            Couleurs.ROUGE: np.array([255, 0, 0]),
-            Couleurs.VERT: np.array([0, 255, 0]),
-            Couleurs.BLEU: np.array([0, 0, 255]),
-            Couleurs.JAUNE: np.array([255, 255, 0]),
-            # Ajoutez d'autres couleurs au besoin
+            Couleurs.BLANC: ([200, 200, 200], [255, 255, 255]),
+            Couleurs.NOIR: ([0, 0, 0], [50, 50, 50]),
+            Couleurs.ROUGE: ([150, 0, 0], [255, 100, 100]),
+            Couleurs.VERT: ([0, 100, 0], [100, 255, 100]),
+            Couleurs.BLEU: ([0, 0, 100], [100, 100, 255]),
+            Couleurs.JAUNE: ([200, 200, 0], [255, 255, 100]),
         }
 
-        nom_couleur_proche = None
-        distance_min = float('inf')
-        for nom_couleur, valeur_couleur in couleurs.items():
-            distance = np.linalg.norm(rgb - valeur_couleur)
-            if distance < distance_min:
-                nom_couleur_proche = nom_couleur
-                distance_min = distance
+        # Vérification de l'appartenance à une plage de couleur
+        for couleur, (min_vals, max_vals) in couleurs.items():
+            if np.all(rgb >= min_vals) and np.all(rgb <= max_vals):
+                return couleur
 
-        return nom_couleur_proche
+        # Si aucune couleur ne correspond, retourner None ou une couleur par défaut
+        return None
 
     def _convertir_image_vers_pixels(self, image):
         pixels = image.reshape((-1, 3))
@@ -48,7 +46,9 @@ class Image:
         couleurs_uniques = centers[:, ::-1]
 
         for rgb in couleurs_uniques:
-            self.couleurs.add(self._convertir_rgb_vers_nom_couleur(rgb))
+            nom_couleur = self._convertir_rgb_vers_nom_couleur(rgb)
+            if nom_couleur:
+                self.couleurs.add(nom_couleur)
 
     def redimensionner(self, largueur, hauteur=None):
         """

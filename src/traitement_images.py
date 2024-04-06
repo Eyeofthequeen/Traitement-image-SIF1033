@@ -9,6 +9,7 @@ from src.image import Image
 from src.constantes import Formes, Couleurs
 from src.drapeaux.canada import Canada
 from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles
+from src.drapeaux.drapeau_avec_cercles import DrapeauAvecCercles
 
 
 Drapeaux = [
@@ -16,7 +17,10 @@ Drapeaux = [
     DrapeauAvecRectangles('France', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE]),
     DrapeauAvecRectangles('Russie', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE], vertical=False),
     DrapeauAvecRectangles('Espagne', [Couleurs.JAUNE, Couleurs.ROUGE], vertical=False),
-    EtatsUnis('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU])
+    EtatsUnis('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU]),
+    DrapeauAvecCercles('Japon', [Couleurs.BLANC, Couleurs.ROUGE]),
+    DrapeauAvecCercles('Bangladesh', [Couleurs.VERT, Couleurs.ROUGE])
+
     #bangladesh, japon, italie, allemagne, panarabisme, suisse, vietnam, pérou
 ]
 
