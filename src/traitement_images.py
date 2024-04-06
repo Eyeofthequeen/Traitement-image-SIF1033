@@ -20,7 +20,6 @@ Drapeaux = [
     EtatsUnis('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU]),
     DrapeauAvecCercles('Japon', [Couleurs.BLANC, Couleurs.ROUGE]),
     DrapeauAvecCercles('Bangladesh', [Couleurs.VERT, Couleurs.ROUGE])
-
     #bangladesh, japon, italie, allemagne, panarabisme, suisse, vietnam, pérou
 ]
 
