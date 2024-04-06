@@ -16,7 +16,7 @@ Drapeaux = [
     DrapeauAvecRectangles('France', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE]),
     DrapeauAvecRectangles('Russie', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE], vertical=False),
     DrapeauAvecRectangles('Espagne', [Couleurs.JAUNE, Couleurs.ROUGE], vertical=False),
-    EtatsUnis('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.MARINE])
+    EtatsUnis('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU])
     #bangladesh, japon, italie, allemagne, panarabisme, suisse, vietnam, pérou
 ]
 

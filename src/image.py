@@ -15,21 +15,12 @@ class Image:
 
     def _convertir_rgb_vers_nom_couleur(self, rgb):
         couleurs = {
-            Couleurs.NOIR: np.array([0, 0, 0]),
             Couleurs.BLANC: np.array([255, 255, 255]),
+            Couleurs.NOIR: np.array([0, 0, 0]),
             Couleurs.ROUGE: np.array([255, 0, 0]),
-            Couleurs.CITRONVERT: np.array([0, 255, 0]),
+            Couleurs.VERT: np.array([0, 255, 0]),
             Couleurs.BLEU: np.array([0, 0, 255]),
-            Couleurs.JAUNE: np.array([255, 255, 0]),
-            Couleurs.CYAN: np.array([0, 255, 255]),
-            Couleurs.MAGENTA: np.array([255, 0, 255]),
-            Couleurs.GRIS: np.array([128, 128, 128]),
-            Couleurs.BORDEAUX: np.array([128, 0, 0]),
-            Couleurs.OLIVE: np.array([128, 128, 0]),
-            Couleurs.VERT: np.array([0, 128, 0]),
-            Couleurs.VIOLET: np.array([128, 0, 128]),
-            Couleurs.SARCELLE: np.array([0, 128, 128]),
-            Couleurs.MARINE: np.array([0, 0, 128]),
+            Couleurs.JAUNE: np.array([255, 255, 0])
             # Ajoutez d'autres couleurs au besoin
         }
 
