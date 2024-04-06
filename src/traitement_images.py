@@ -20,8 +20,11 @@ Drapeaux = [
     DrapeauAvecRectangles('Espagne', [Couleurs.JAUNE, Couleurs.ROUGE], vertical=False),
     EtatsUnis('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU]),
     DrapeauAvecCercles('Japon', [Couleurs.BLANC, Couleurs.ROUGE]),
-    DrapeauAvecCercles('Bangladesh', [Couleurs.VERT, Couleurs.ROUGE])
-    #bangladesh, japon, italie, allemagne, panarabisme, suisse, vietnam, pérou
+    DrapeauAvecCercles('Bangladesh', [Couleurs.VERT, Couleurs.ROUGE]),
+    DrapeauAvecRectangles('Italie', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC]),
+    DrapeauAvecRectangles('Allemagne', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE], vertical=False),
+    DrapeauAvecRectangles('Pérou', [Couleurs.BLANC, Couleurs.ROUGE])
+    #italie, allemagne, panarabisme, suisse, vietnam, pérou
 ]
 
 
