@@ -4,6 +4,7 @@ import numpy as np
 from typing import List
 from matplotlib import pyplot as plt
 
+from src.drapeaux.etatsUnis import EtatsUnis
 from src.image import Image
 from src.constantes import Formes, Couleurs
 from src.drapeaux.canada import Canada
@@ -15,7 +16,8 @@ Drapeaux = [
     DrapeauAvecRectangles('France', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE]),
     DrapeauAvecRectangles('Russie', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE], vertical=False),
     DrapeauAvecRectangles('Espagne', [Couleurs.JAUNE, Couleurs.ROUGE], vertical=False),
-    DrapeauAvecRectangles('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], nb_rectangles=14, vertical=False)
+    EtatsUnis('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU])
+    #bangladesh, japon, italie, allemagne, panarabisme, suisse, vietnam, pérou
 ]
 
 
