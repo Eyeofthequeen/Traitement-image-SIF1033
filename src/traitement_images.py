@@ -8,7 +8,6 @@ from src.image import Image
 from src.constantes import Formes, Couleurs
 from src.drapeaux.canada import Canada
 from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles
-from src.drapeaux.etatsUnis import EtatsUnis
 from src.drapeaux.drapeau_avec_cercles import DrapeauAvecCercles
 from src.drapeaux.drapeau_avec_etoiles import DrapeauAvecEtoiles
 from src.drapeaux.etatsUnis import EtatsUnis
