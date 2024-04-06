@@ -24,7 +24,7 @@ Drapeaux = [
     DrapeauAvecRectangles('Italie', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC]),
     DrapeauAvecRectangles('Allemagne', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE], vertical=False),
     DrapeauAvecRectangles('Pérou', [Couleurs.BLANC, Couleurs.ROUGE])
-    #panarabisme, suisse, vietnam
+    #panarabisme, suisse, vietnam, chine
 ]
 
 
