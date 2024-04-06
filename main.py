@@ -21,7 +21,7 @@ def main():
         images = [extraire_image(args.chemin)]
 
     traitement = TraitementImages(images)
-    traitement.afficher_tout(Formes.CARRE)
+    traitement.afficher_tout(Formes.TRIANGLE)
 
     if args.histogramme:
         traitement.afficher_histogramme_tout()

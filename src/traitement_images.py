@@ -37,7 +37,13 @@ class TraitementImages:
         for contour in contours:
             approx = cv2.approxPolyDP(contour, epsilon * cv2.arcLength(contour, True), True)
 
-            if len(approx) == 4:
+            if len(approx) == 3:
+                x = approx.ravel()[0]
+                y = approx.ravel()[1] - 5
+                #contours_quadrilateres.append(contour)
+                cv2.putText( image, "Triangle", (x, y), cv2.FONT_HERSHEY_COMPLEX, 0.5, (0, 0, 0) )
+
+            elif len(approx) == 4:
                 x, y, w, h = cv2.boundingRect(contour)
                 # Mesure qui représente la proportion entre la largeur et la hauteur d'un objet
                 rapport_aspect = float(w) / h
@@ -50,7 +56,7 @@ class TraitementImages:
 
                 if not est_carre and not carre:
                     contours_quadrilateres.append(contour)
-
+                    
         return contours_quadrilateres
 
     def afficher_tout(self, forme: Formes):
@@ -63,6 +69,8 @@ class TraitementImages:
                 contours = self.detecter_contours_quadrilateres(image)
             elif Formes.RECTANGLE == forme:
                 contours = self.detecter_contours_quadrilateres(image, carre=False)
+            elif Formes.TRIANGLE == forme:
+                contours = self.detecter_contours_quadrilateres(image, carre=False, epsilon=0.01)
 
             cv2.drawContours(image, contours, -1, (0, 255, 0), 3)
             self._afficher('Image avec contours', image)
