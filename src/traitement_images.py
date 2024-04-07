@@ -12,11 +12,13 @@ from src.drapeaux.liban import Liban
 from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles
 from src.drapeaux.drapeau_avec_cercles import DrapeauAvecCercles
 from src.drapeaux.drapeau_avec_etoiles import DrapeauAvecEtoiles
+from src.drapeaux.drapeau_avec_etoiles_et_cercle import DrapeauAvecCerclesEtEtoiles
 
 
 Drapeaux = [
     Liban('Liban', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC]),
     Canada('Canada', [Couleurs.BLANC, Couleurs.ROUGE]),
+    DrapeauAvecCerclesEtEtoiles('Coree du Nord', [Couleurs.ROUGE, Couleurs.BLEU, Couleurs.BLANC]),
     DrapeauAvecRectangles('France', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE]),
     DrapeauAvecRectangles('Russie', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE], vertical=False),
     DrapeauAvecRectangles('Espagne', [Couleurs.JAUNE, Couleurs.ROUGE], vertical=False),
@@ -29,7 +31,7 @@ Drapeaux = [
     DrapeauAvecRectangles('Allemagne', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE], vertical=False),
     DrapeauAvecRectangles('Pérou', [Couleurs.BLANC, Couleurs.ROUGE]),
     DrapeauAvecTriangles('Panarabisme', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], nb_rectangles=3, nb_triangles=1, vertical=False),
-    DrapeauAvecTriangles('Tchéquie', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], nb_rectangles=2, nb_triangles=1, vertical=False)
+    DrapeauAvecTriangles('Tchéquie', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], nb_rectangles=2, nb_triangles=1, vertical=False),
     #panarabisme, suisse
 ]
 
