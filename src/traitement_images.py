@@ -27,7 +27,7 @@ Drapeaux = [
     DrapeauAvecRectangles('Italie', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC]),
     DrapeauAvecRectangles('Allemagne', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE], vertical=False),
     DrapeauAvecRectangles('Pérou', [Couleurs.BLANC, Couleurs.ROUGE])
-    #panarabisme, suisse, vietnam, chine
+    #panarabisme, suisse
 ]
 
 
@@ -44,7 +44,7 @@ class TraitementImages:
 
     def detecter_drapeaux_de_chaque_image(self):
         for image in self.images:
-            self._afficher(f"Origin - {image.fichier}", image.redimensionner(600))
+            self._afficher(f"Origin - {image.fichier}", image.image)
             print(image.fichier)
             for drapeau in Drapeaux:
                 if drapeau.valider(image):

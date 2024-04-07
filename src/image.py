@@ -11,6 +11,7 @@ class Image:
         self.nb_couleurs_max = nb_couleurs_max
         self.couleurs = set()
 
+        self.image = self.redimensionner(800)
         self._identifier_couleurs_unique()
 
     def _convertir_rgb_vers_nom_couleur(self, rgb):
@@ -67,7 +68,7 @@ class Image:
     def dessiner_contours(self, titre, contours):
         tmp = self.image.copy()
         cv2.drawContours(self.image, contours, -1, (0, 255, 0), 2)
-        cv2.imshow(titre, self.redimensionner(600))
+        cv2.imshow(titre, self.image)
         self.image = tmp
 
     def extraire_region(self, contour):

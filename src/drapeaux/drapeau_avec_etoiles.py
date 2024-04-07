@@ -23,6 +23,7 @@ class DrapeauAvecEtoiles(Drapeau):
             approx = cv2.approxPolyDP(contour, 0.02 * cv2.arcLength(contour, True), True)
             if len(approx) == 10:  # 10 côté égal une étoile
                 etoiles.append(approx)
+
         if len(etoiles) > 0:
             image.dessiner_contours(
                 f"Contours des etoiles pour {image.fichier}", etoiles
