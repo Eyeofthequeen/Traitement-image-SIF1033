@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-from src.constantes import Couleurs
+from src.commun.constantes import Couleurs
 
 
 class Image:
@@ -69,3 +69,7 @@ class Image:
         cv2.drawContours(self.image, contours, -1, (0, 255, 0), 2)
         cv2.imshow(titre, self.redimensionner(600))
         self.image = tmp
+
+    def extraire_region(self, contour):
+        x, y, w, h = cv2.boundingRect(contour)
+        return self.image[y:y+h, x:x+w]
