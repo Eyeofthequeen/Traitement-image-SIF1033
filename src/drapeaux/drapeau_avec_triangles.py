@@ -1,15 +1,15 @@
 import cv2
 import numpy as np
 
+from src.drapeaux.drapeau import Drapeau
 from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles
 from src.image import Image
 from src.commun.constantes import Difficultes
 
-class DrapeauAvecTriangles(DrapeauAvecRectangles):
-    def __init__(self, nom, couleurs, nb_rectangles, nb_triangles=1, vertical=True, niveau=Difficultes.FAIBLE):
-        super().__init__(nom, couleurs, nb_rectangles=nb_rectangles, niveau=niveau)
+class DrapeauAvecTriangles(Drapeau):
+    def __init__(self, nom, couleurs, nb_triangles=1):
+        super().__init__(nom, couleurs)
         self.nb_triangles = nb_triangles
-        self.vertical = vertical
 
     def _image_contient_triangles(self, image):
         gris = image.convertir_niveaux_de_gris_ameliore()
@@ -25,4 +25,4 @@ class DrapeauAvecTriangles(DrapeauAvecRectangles):
         return len(triangles) == self.nb_triangles
         
     def valider(self, image: Image):
-        return self.couleurs_valides(image.couleurs) and self._image_contient_triangles(image) and self._image_contient_rectangles(image)
+        return self.couleurs_valides(image.couleurs) and self._image_contient_triangles(image)
