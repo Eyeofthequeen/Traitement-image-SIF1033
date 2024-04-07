@@ -74,3 +74,10 @@ class Image:
     def extraire_region(self, contour):
         x, y, w, h = cv2.boundingRect(contour)
         return self.image[y:y+h, x:x+w]
+
+    def convertir_niveaux_de_gris_ameliore(self):
+        gris = self.convertir_niveaux_de_gris()
+        normalized_img = cv2.normalize(gris, None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX)
+        sharpened_img = cv2.filter2D(normalized_img, -1, np.array([[-1, -1, -1], [-1, 9, -1], [-1, -1, -1]]))
+        return cv2.equalizeHist(sharpened_img)
+

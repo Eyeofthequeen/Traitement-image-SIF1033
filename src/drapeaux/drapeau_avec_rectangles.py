@@ -11,15 +11,14 @@ class DrapeauAvecRectangles(Drapeau):
         self.vertical = vertical
 
     def _image_contient_rectangles(self, image):
-        gris = image.convertir_niveaux_de_gris()
-
-        seuil_adaptatif = cv2.adaptiveThreshold(gris, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
+        gris = image.convertir_niveaux_de_gris_ameliore()
+        seuil_adaptatif = cv2.adaptiveThreshold(gris, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
         contours, _ = cv2.findContours(seuil_adaptatif, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
         rectangles = []
         for contour in contours:
             perimetre = cv2.arcLength(contour, True)
-            approx = cv2.approxPolyDP(contour, 0.02 * perimetre, True)
+            approx = cv2.approxPolyDP(contour, 0.01 * perimetre, True)
             if len(approx) == 4:  # 4 côtés donc rectangle
                 x, y, w, h = cv2.boundingRect(contour)
                 rect_vertical = h > w and self.vertical
@@ -27,6 +26,7 @@ class DrapeauAvecRectangles(Drapeau):
                 
                 if rect_vertical or rect_horizontal:
                     rectangles.append(approx)
+
 
         nb_rectangles_valide = len(rectangles) == self.nb_rectangles
         if nb_rectangles_valide:
