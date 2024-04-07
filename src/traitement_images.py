@@ -4,6 +4,7 @@ import numpy as np
 from typing import List
 from matplotlib import pyplot as plt
 
+from src.drapeaux.drapeau_avec_triangles import DrapeauAvecTriangles
 from src.image import Image
 from src.constantes import Formes, Couleurs
 from src.drapeaux.canada import Canada
@@ -22,11 +23,13 @@ Drapeaux = [
     DrapeauAvecEtoiles('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], nb_etoiles=50),
     DrapeauAvecEtoiles('Vietnam', [Couleurs.ROUGE, Couleurs.JAUNE]),
     DrapeauAvecCercles('Japon', [Couleurs.BLANC, Couleurs.ROUGE]),
-    DrapeauAvecEtoiles('Chine', [Couleurs.ROUGE, Couleurs.JAUNE], 5),
+    DrapeauAvecEtoiles('Chine', [Couleurs.ROUGE, Couleurs.JAUNE], nb_etoiles=5),
     DrapeauAvecCercles('Bangladesh', [Couleurs.VERT, Couleurs.ROUGE]),
     DrapeauAvecRectangles('Italie', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC]),
     DrapeauAvecRectangles('Allemagne', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE], vertical=False),
-    DrapeauAvecRectangles('Pérou', [Couleurs.BLANC, Couleurs.ROUGE])
+    DrapeauAvecRectangles('Pérou', [Couleurs.BLANC, Couleurs.ROUGE]),
+    DrapeauAvecTriangles('Panarabisme', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], nb_rectangles=3, nb_triangles=1, vertical=False),
+    DrapeauAvecTriangles('Tchéquie', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], nb_rectangles=2, nb_triangles=1, vertical=False)
     #panarabisme, suisse, vietnam, chine
 ]
 
