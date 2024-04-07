@@ -3,7 +3,7 @@ import numpy as np
 
 from src.drapeaux.drapeau import Drapeau
 from src.image import Image
-from src.outils import verifier_avec_marge_erreur
+from src.commun.outils import verifier_avec_marge_erreur
 
 
 class DrapeauAvecEtoiles(Drapeau):

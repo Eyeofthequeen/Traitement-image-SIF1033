@@ -3,23 +3,27 @@ import numpy as np
 
 from src.drapeaux.drapeau import Drapeau
 from src.image import Image
+from src.commun import image_outils
+from src.commun.constantes import Couleurs
 
 class Liban(Drapeau):
     def __init__(self, nom, couleurs):
         super().__init__(nom, couleurs)
         self.nb_sapins = 1
-        self.proportion_vert = 90
+        # Quand la région sera extraite, elle prendra plus que juste le.s sapin.s donc,
+        # la proportion de vert considéré valide peut être largement inférieur a 100%.
+        self.proportion_vert = 40
 
-    def _valider_sapin_vert(self, image, sapins):
-        for contour in sapins:
-            x, y, w, h = cv2.boundingRect(contour)
-            region_vert = image[y:y+h, x:x+w] # Region de l'image correspondant au contour
+    def _valider_sapin_vert(self, image: Image, sapins):
+        for sapin in sapins:
+            region_sapin = image.extraire_region(sapin)
 
-            gris = cv2.cvtColor(region_vert, cv2.COLOR_BGR2GRAY)
-            seuil_vert_region = cv2.threshold(gris, 100, 255, cv2.THRESH_BINARY)[1] # Seuil du vert
-            proportion_vert = np.count_nonzero(seuil_vert_region) / (w * h)
+            nb_pixels_verts = image_outils.extraire_nb_pixels_pour_couleur(Couleurs.VERT, region_sapin)
+            h, w = region_sapin.shape[:2]
+            nb_pixels_total = h * w
+            proportion_vert = (nb_pixels_verts / nb_pixels_total) * 100
 
-            return proportion_vert * 100 > self.proportion_vert
+            return proportion_vert > self.proportion_vert
         return False
 
     def _valider_sapins(self, image, sapins):
@@ -29,7 +33,7 @@ class Liban(Drapeau):
             return nb_sapins_valide
 
         image.dessiner_contours('Contour sapin', sapins)
-        return self._valider_sapin_vert(image.image, sapins)
+        return self._valider_sapin_vert(image, sapins)
 
     def _extraire_sapins(self, image):
         seuil_min = 10000

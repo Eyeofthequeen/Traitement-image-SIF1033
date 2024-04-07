@@ -5,7 +5,7 @@ from typing import List
 from matplotlib import pyplot as plt
 
 from src.image import Image
-from src.constantes import Formes, Couleurs
+from src.commun.constantes import Formes, Couleurs
 from src.drapeaux.canada import Canada
 from src.drapeaux.liban import Liban
 from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles

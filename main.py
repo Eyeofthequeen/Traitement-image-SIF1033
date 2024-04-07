@@ -2,9 +2,9 @@ import cv2
 import os
 import argparse
 
-from src.outils import extraire_images, extraire_image, est_image
 from src.traitement_images import TraitementImages
-from src.constantes import Formes
+from src.commun.constantes import Formes
+from src.commun.outils import extraire_images, extraire_image, est_image
 
 
 def main():
