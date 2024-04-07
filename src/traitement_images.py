@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 
 from src.drapeaux.drapeau_avec_triangles import DrapeauAvecTriangles
 from src.image import Image
-from src.commun.constantes import Formes, Couleurs
+from src.commun.constantes import Formes, Couleurs, Difficultes
 from src.drapeaux.canada import Canada
 from src.drapeaux.liban import Liban
 from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles
@@ -30,7 +30,7 @@ Drapeaux = [
     DrapeauAvecRectangles('Italie', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC]),
     DrapeauAvecRectangles('Allemagne', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE], vertical=False),
     DrapeauAvecRectangles('Pérou', [Couleurs.BLANC, Couleurs.ROUGE]),
-    DrapeauAvecTriangles('Panarabisme', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], nb_rectangles=3, nb_triangles=1, vertical=False),
+    DrapeauAvecTriangles('Panarabisme', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], nb_rectangles=3, nb_triangles=1, vertical=False, niveau=Difficultes.ELEVEE),
     DrapeauAvecTriangles('Tchéquie', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], nb_rectangles=2, nb_triangles=1, vertical=False),
     #panarabisme, suisse
 ]

@@ -9,3 +9,8 @@ class Couleurs:
     VERT = "vert"
     BLEU = "bleu"
     JAUNE = "jaune"
+
+class Difficultes:
+    FAIBLE = 0
+    MOYENNE = 10
+    ELEVEE = 100

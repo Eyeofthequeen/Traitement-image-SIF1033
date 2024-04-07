@@ -10,7 +10,7 @@ class Liban(Drapeau):
     def __init__(self, nom, couleurs):
         super().__init__(nom, couleurs)
         self.nb_sapins = 1
-        # Quand la région sera extraite, elle prendra plus que juste le.s sapin.s donc,
+        # Quand la région sera extraite, elle prendra plus que juste le sapin donc,
         # la proportion de vert considéré valide peut être largement inférieur a 100%.
         self.proportion_vert = 40
 

@@ -81,3 +81,20 @@ class Image:
         sharpened_img = cv2.filter2D(normalized_img, -1, np.array([[-1, -1, -1], [-1, 9, -1], [-1, -1, -1]]))
         return cv2.equalizeHist(sharpened_img)
 
+    def convertir_niveaux_de_gris_agressif(self):
+        gris = self.convertir_niveaux_de_gris()
+        normalized_img = cv2.normalize(gris, None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX)
+        sharpened_img = cv2.filter2D(normalized_img, -1, np.array([[-1, -1, -1], [-1, 9, -1], [-1, -1, -1]]))
+        equalized = cv2.equalizeHist(sharpened_img)
+
+        laplacian = cv2.Laplacian(equalized, cv2.CV_64F)
+
+        ajuste = cv2.convertScaleAbs(laplacian, alpha=1.2, beta=50)
+        return ajuste
+
+    def seuillage_aggressif(self):
+        kernel = np.ones((3, 3), np.uint8)
+        gris = self.convertir_niveaux_de_gris_ameliore()
+        seuil = cv2.adaptiveThreshold(gris, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2)
+        gris = cv2.dilate(seuil, kernel, iterations=100)
+        return seuil
