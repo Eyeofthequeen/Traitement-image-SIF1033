@@ -24,7 +24,7 @@ def verifier_avec_marge_erreur(valeur, valeur_attendu, marge_erreur):
     borne_inf = valeur_attendu - marge_erreur
     borne_sup = valeur_attendu + marge_erreur
 
-    if borne_inf < 0:
+    if borne_inf <= 0:
         borne_inf = 1
 
     return borne_inf <= valeur <= borne_sup
