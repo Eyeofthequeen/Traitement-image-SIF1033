@@ -12,6 +12,7 @@ from src.drapeaux.liban import Liban
 from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles
 from src.drapeaux.drapeau_avec_cercles import DrapeauAvecCercles
 from src.drapeaux.drapeau_avec_etoiles import DrapeauAvecEtoiles
+from src.drapeaux.drapeau_avec_triangles import DrapeauAvecTriangles
 from src.drapeaux.drapeau_avec_etoiles_et_cercle import DrapeauAvecCerclesEtEtoiles
 
 
@@ -22,6 +23,7 @@ Drapeaux = [
         'Bahamas', [Couleurs.JAUNE, Couleurs.BLEU, Couleurs.NOIR], vertical=False, niveau=Difficultes.ELEVEE
     ),
     DrapeauAvecCerclesEtEtoiles('Coree du Nord', [Couleurs.ROUGE, Couleurs.BLEU, Couleurs.BLANC]),
+    DrapeauAvecTriangles('Jamaique', [Couleurs.NOIR, Couleurs.JAUNE, Couleurs.VERT], 4),
     DrapeauAvecRectangles('France', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE]),
     DrapeauAvecRectangles('Russie', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE], vertical=False),
     DrapeauAvecRectangles('Espagne', [Couleurs.JAUNE, Couleurs.ROUGE], vertical=False),
