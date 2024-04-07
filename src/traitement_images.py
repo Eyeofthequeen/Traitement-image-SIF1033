@@ -18,6 +18,9 @@ from src.drapeaux.drapeau_avec_etoiles_et_cercle import DrapeauAvecCerclesEtEtoi
 Drapeaux = [
     Liban('Liban', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC]),
     Canada('Canada', [Couleurs.BLANC, Couleurs.ROUGE]),
+    DrapeauAvecTrianglesEtRectangles(
+        'Bahamas', [Couleurs.JAUNE, Couleurs.BLEU, Couleurs.NOIR], vertical=False, niveau=Difficultes.ELEVEE
+    ),
     DrapeauAvecCerclesEtEtoiles('Coree du Nord', [Couleurs.ROUGE, Couleurs.BLEU, Couleurs.BLANC]),
     DrapeauAvecRectangles('France', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE]),
     DrapeauAvecRectangles('Russie', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE], vertical=False),
@@ -31,7 +34,7 @@ Drapeaux = [
     DrapeauAvecRectangles('Allemagne', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE], vertical=False),
     DrapeauAvecRectangles('Pérou', [Couleurs.BLANC, Couleurs.ROUGE]),
     DrapeauAvecTrianglesEtRectangles(
-        'Panarabisme', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], nb_rectangles=3, nb_triangles=1, vertical=False, niveau=Difficultes.ELEVEE
+        'Panarabisme', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], vertical=False, niveau=Difficultes.ELEVEE
     ),
     DrapeauAvecTrianglesEtRectangles(
         'Tchéquie', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], nb_rectangles=2, nb_triangles=1, vertical=False

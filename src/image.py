@@ -21,7 +21,7 @@ class Image:
             Couleurs.NOIR: ([0, 0, 0], [50, 50, 50]),
             Couleurs.ROUGE: ([150, 0, 0], [255, 100, 100]),
             Couleurs.VERT: ([0, 100, 0], [100, 255, 100]),
-            Couleurs.BLEU: ([0, 0, 100], [100, 100, 255]),
+            Couleurs.BLEU: ([0, 0, 100], [100, 125, 255]),
             Couleurs.JAUNE: ([200, 175, 0], [255, 255, 100]),
         }
 
