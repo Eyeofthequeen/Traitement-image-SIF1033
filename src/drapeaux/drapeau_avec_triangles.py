@@ -22,7 +22,11 @@ class DrapeauAvecTriangles(Drapeau):
             if len(approx) == 3:  # Plage pour approximer un triangle
                 triangles.append(approx)
                 image.dessiner_contours("Contours triangles", [approx])
-        return len(triangles) == self.nb_triangles
+
+        nb_triangles_valide = len(triangles) == self.nb_triangles
+        if nb_triangles_valide:
+            image.dessiner_contours("Contours triangles", triangles)
+        return nb_triangles_valide
         
     def valider(self, image: Image):
         return self.couleurs_valides(image.couleurs) and self._image_contient_triangles(image)
