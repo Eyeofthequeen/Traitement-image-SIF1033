@@ -5,7 +5,7 @@ from src.commun.constantes import Couleurs
 
 
 class Image:
-    def __init__(self, fichier, image, nb_couleurs_max=4):
+    def __init__(self, fichier, image, nb_couleurs_max=5):
         self.fichier = fichier
         self.image = image
         self.nb_couleurs_max = nb_couleurs_max
@@ -20,7 +20,7 @@ class Image:
             Couleurs.BLANC: ([200, 200, 200], [255, 255, 255]),
             Couleurs.NOIR: ([0, 0, 0], [50, 50, 50]),
             Couleurs.ROUGE: ([150, 0, 0], [255, 100, 100]),
-            Couleurs.VERT: ([0, 100, 0], [100, 255, 100]),
+            Couleurs.VERT: ([0, 100, 0], [100, 255, 110]),
             Couleurs.BLEU: ([0, 0, 100], [100, 125, 255]),
             Couleurs.JAUNE: ([200, 175, 0], [255, 255, 100]),
         }
@@ -40,7 +40,7 @@ class Image:
     def _identifier_couleurs_unique(self):
         pixels = self._convertir_image_vers_pixels(self.image)
 
-        criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.2)
+        criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.001)
         _, _, centers = cv2.kmeans(pixels, self.nb_couleurs_max, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
 
         centers = np.uint8(centers) # Conversion du cluster en valeurs entières

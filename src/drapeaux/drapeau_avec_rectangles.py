@@ -7,10 +7,9 @@ from src.commun.constantes import Difficultes
 
 class DrapeauAvecRectangles(Drapeau):
     def __init__(self, nom, couleurs, nb_rectangles=3, vertical=True, niveau: Difficultes=Difficultes.FAIBLE):
-        super().__init__(nom, couleurs)
+        super().__init__(nom, couleurs, niveau)
         self.nb_rectangles = nb_rectangles
         self.vertical = vertical
-        self.niveau = niveau
 
     def _image_contient_rectangles(self, image):
         niveau_elevee = self.niveau == Difficultes.ELEVEE

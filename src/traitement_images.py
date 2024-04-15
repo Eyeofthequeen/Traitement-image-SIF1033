@@ -13,6 +13,7 @@ from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles
 from src.drapeaux.drapeau_avec_cercles import DrapeauAvecCercles
 from src.drapeaux.drapeau_avec_etoiles import DrapeauAvecEtoiles
 from src.drapeaux.drapeau_avec_triangles import DrapeauAvecTriangles
+from src.drapeaux.drapeau_avec_trapezes import DrapeauAvecTrapezes
 from src.drapeaux.drapeau_avec_etoiles_et_cercle import DrapeauAvecCerclesEtEtoiles
 
 
@@ -22,6 +23,7 @@ Drapeaux = [
     DrapeauAvecTrianglesEtRectangles(
         'Bahamas', [Couleurs.JAUNE, Couleurs.BLEU, Couleurs.NOIR], vertical=False, niveau=Difficultes.ELEVEE
     ),
+    DrapeauAvecTriangles('Guyana', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE, Couleurs.BLANC, Couleurs.VERT], 5),
     DrapeauAvecCerclesEtEtoiles('Coree du Nord', [Couleurs.ROUGE, Couleurs.BLEU, Couleurs.BLANC]),
     DrapeauAvecTriangles('Jamaique', [Couleurs.NOIR, Couleurs.JAUNE, Couleurs.VERT], 4),
     DrapeauAvecRectangles('France', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE]),
@@ -35,13 +37,17 @@ Drapeaux = [
     DrapeauAvecRectangles('Italie', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC]),
     DrapeauAvecRectangles('Allemagne', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE], vertical=False),
     DrapeauAvecRectangles('Pérou', [Couleurs.BLANC, Couleurs.ROUGE]),
+    # DrapeauAvecTrianglesEtRectangles(
+        # 'Panarabisme', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], vertical=False, niveau=Difficultes.ELEVEE
+    # ),
     DrapeauAvecTrianglesEtRectangles(
-        'Panarabisme', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], vertical=False, niveau=Difficultes.ELEVEE
-    ),
+        'Soudan', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], vertical=False, niveau=Difficultes.ELEVEE
+    ), # Panarabisme doit être commenté pour que celui-ci soit détecté parce qu'ils sont identiques. On ne valide pas l'ordre des couleurs.
     DrapeauAvecTrianglesEtRectangles(
         'Tchéquie', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], nb_rectangles=2, nb_triangles=1, vertical=False
     ),
-    #panarabisme, suisse
+    DrapeauAvecTrapezes('Kuwait', [Couleurs.VERT, Couleurs.NOIR, Couleurs.BLANC, Couleurs.ROUGE])
+    #suisse
 ]
 
 

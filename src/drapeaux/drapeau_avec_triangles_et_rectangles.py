@@ -10,7 +10,7 @@ class DrapeauAvecTrianglesEtRectangles(DrapeauAvecTriangles, DrapeauAvecRectangl
     def __init__(self, nom, couleurs, nb_rectangles=3, nb_triangles=1, vertical=True, niveau=Difficultes.FAIBLE):
         self.nb_triangles = nb_triangles
         DrapeauAvecTriangles.__init__(self, nom, couleurs, nb_triangles)
-        DrapeauAvecRectangles.__init__(self, nom, couleurs, nb_rectangles, vertical, niveau)
+        DrapeauAvecRectangles.__init__(self, nom, couleurs, nb_rectangles, vertical, niveau=niveau)
         
     def valider(self, image: Image):
         return (self.couleurs_valides(image.couleurs)
