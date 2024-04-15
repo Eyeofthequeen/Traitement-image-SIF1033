@@ -11,6 +11,7 @@ class DrapeauAvecCercles(Drapeau):
         self.nb_cercles = nb_cercles
 
     def _image_contient_cercles(self, image: Image):
+        # Approche de Hough
         gris = image.convertir_niveaux_de_gris()
         gris = cv2.medianBlur(gris, 5)
         cercles = cv2.HoughCircles(gris, cv2.HOUGH_GRADIENT, dp=1, minDist=20, param1=50, param2=30, minRadius=0, maxRadius=0)
