@@ -11,11 +11,15 @@ class DrapeauAvecCercles(Drapeau):
         self.nb_cercles = nb_cercles
 
     def _image_contient_cercles(self, image: Image):
-        # Approche de Hough
         gris = image.convertir_niveaux_de_gris()
-        gris = cv2.medianBlur(gris, 5)
-        cercles = cv2.HoughCircles(gris, cv2.HOUGH_GRADIENT, dp=1, minDist=20, param1=50, param2=30, minRadius=0, maxRadius=0)
-        return cercles is not None and len(cercles[0]) >= self.nb_cercles
+        contours = cv2.Canny(gris, 30, 100)
+        cercles = cv2.HoughCircles(contours, cv2.HOUGH_GRADIENT, 2, image.image.shape[0]/2)
+
+        cercles_valides = cercles is not None and len(cercles[0]) == self.nb_cercles
+        if cercles_valides:
+            image.dessiner_contours_cercles(f'Cercles pour {image.fichier}', cercles[0])
+
+        return cercles_valides
 
     def valider(self, image: Image):
         return self.couleurs_valides(image.couleurs) and self._image_contient_cercles(image)

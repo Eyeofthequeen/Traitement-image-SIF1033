@@ -71,6 +71,13 @@ class Image:
         cv2.imshow(titre, self.image)
         self.image = tmp
 
+    def dessiner_contours_cercles(self, titre, cercles):
+        tmp = self.image.copy()
+        for cercle in cercles:
+            x, y, r = cercle
+            cv2.circle(tmp, (int(x), int(y)), int(r), (0, 255, 0), 2)
+        cv2.imshow(titre, tmp)
+
     def extraire_region(self, contour):
         x, y, w, h = cv2.boundingRect(contour)
         return self.image[y:y+h, x:x+w]
