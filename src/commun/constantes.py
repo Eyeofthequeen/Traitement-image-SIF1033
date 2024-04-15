@@ -1,6 +1,10 @@
 class Formes:
     CARRE = "carre"
     RECTANGLE = "rectangle"
+    TRAPEZE = "trapeze"
+    TRIANGLE = "triangle"
+    CERCLE = "cercle"
+    ETOILE = "etoile"
 
 class Couleurs:
     ROUGE = "rouge"

@@ -8,37 +8,40 @@ from src.image import Image
 from src.commun.constantes import Formes, Couleurs, Difficultes
 from src.drapeaux import *
 
+TroisRectangles = (Formes.RECTANGLE, 3)
+UnCercle = (Formes.CERCLE, 1)
+UnTriangle = (Formes.TRIANGLE, 1)
 
 Drapeaux = [
     Liban('Liban', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC]),
     Canada('Canada', [Couleurs.BLANC, Couleurs.ROUGE]),
-    DrapeauAvecTrianglesEtRectangles(
-        'Bahamas', [Couleurs.JAUNE, Couleurs.BLEU, Couleurs.NOIR], vertical=False, niveau=Difficultes.ELEVEE
+    DrapeauAvecFormes(
+        'Bahamas', [Couleurs.JAUNE, Couleurs.BLEU, Couleurs.NOIR], [UnTriangle, TroisRectangles], vertical=False, niveau=Difficultes.ELEVEE
     ),
-    DrapeauAvecTriangles('Guyana', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE, Couleurs.BLANC, Couleurs.VERT], 5),
-    DrapeauAvecCerclesEtEtoiles('Coree du Nord', [Couleurs.ROUGE, Couleurs.BLEU, Couleurs.BLANC]),
-    DrapeauAvecTriangles('Jamaique', [Couleurs.NOIR, Couleurs.JAUNE, Couleurs.VERT], 4),
-    DrapeauAvecRectangles('France', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE]),
-    DrapeauAvecRectangles('Russie', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE], vertical=False),
-    DrapeauAvecRectangles('Espagne', [Couleurs.JAUNE, Couleurs.ROUGE], vertical=False),
-    DrapeauAvecEtoiles('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], nb_etoiles=50),
-    DrapeauAvecEtoiles('Vietnam', [Couleurs.ROUGE, Couleurs.JAUNE]),
-    DrapeauAvecCercles('Japon', [Couleurs.BLANC, Couleurs.ROUGE]),
-    DrapeauAvecEtoiles('Chine', [Couleurs.ROUGE, Couleurs.JAUNE], nb_etoiles=5),
-    DrapeauAvecCercles('Bangladesh', [Couleurs.VERT, Couleurs.ROUGE]),
-    DrapeauAvecRectangles('Italie', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC]),
-    DrapeauAvecRectangles('Allemagne', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE], vertical=False),
-    DrapeauAvecRectangles('Pérou', [Couleurs.BLANC, Couleurs.ROUGE]),
-    DrapeauAvecTrapezesEtRectangles('Kuwait', [Couleurs.VERT, Couleurs.NOIR, Couleurs.BLANC, Couleurs.ROUGE], vertical=False, niveau=Difficultes.ELEVEE),
-    # DrapeauAvecTrianglesEtRectangles(
-        # 'Panarabisme', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], vertical=False, niveau=Difficultes.ELEVEE
+    DrapeauAvecFormes('Guyana', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE, Couleurs.BLANC, Couleurs.VERT], [(Formes.TRIANGLE, 5)]),
+    DrapeauAvecFormes('Coree du Nord', [Couleurs.ROUGE, Couleurs.BLEU, Couleurs.BLANC], [UnCercle, (Formes.ETOILE, 1)]),
+    DrapeauAvecFormes('Jamaique', [Couleurs.NOIR, Couleurs.JAUNE, Couleurs.VERT], [(Formes.TRIANGLE, 4)]),
+    DrapeauAvecFormes('France', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE], [TroisRectangles]),
+    DrapeauAvecFormes('Russie', [Couleurs.BLANC, Couleurs.BLEU, Couleurs.ROUGE], [TroisRectangles], vertical=False),
+    DrapeauAvecFormes('Espagne', [Couleurs.JAUNE, Couleurs.ROUGE], [TroisRectangles], vertical=False),
+    DrapeauAvecFormes('États-Unis', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], [(Formes.ETOILE, 50)]),
+    DrapeauAvecFormes('Vietnam', [Couleurs.ROUGE, Couleurs.JAUNE], [(Formes.ETOILE, 1)]),
+    DrapeauAvecFormes('Japon', [Couleurs.BLANC, Couleurs.ROUGE], [UnCercle]),
+    DrapeauAvecFormes('Chine', [Couleurs.ROUGE, Couleurs.JAUNE], [(Formes.ETOILE, 5)]),
+    DrapeauAvecFormes('Bangladesh', [Couleurs.VERT, Couleurs.ROUGE], [UnCercle]),
+    DrapeauAvecFormes('Italie', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC], [TroisRectangles]),
+    DrapeauAvecFormes('Allemagne', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE], [TroisRectangles], vertical=False), 
+    DrapeauAvecFormes('Pérou', [Couleurs.BLANC, Couleurs.ROUGE], [TroisRectangles]), 
+    DrapeauAvecFormes(
+        'Kuwait', [Couleurs.VERT, Couleurs.NOIR, Couleurs.BLANC, Couleurs.ROUGE], [(Formes.TRAPEZE, 1), TroisRectangles], vertical=False, niveau=Difficultes.ELEVEE
+    ),
+    # DrapeauAvecFormes(
+        # 'Panarabisme', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], [UnTriangle, TroisRectangles], vertical=False, niveau=Difficultes.ELEVEE
     # ),
-    DrapeauAvecTrianglesEtRectangles(
-        'Soudan', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], vertical=False, niveau=Difficultes.ELEVEE
+    DrapeauAvecFormes(
+        'Soudan', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], [UnTriangle, TroisRectangles], vertical=False, niveau=Difficultes.ELEVEE
     ), # Panarabisme doit être commenté pour que celui-ci soit détecté parce qu'ils sont identiques. On ne valide pas l'ordre des couleurs.
-    DrapeauAvecTrianglesEtRectangles(
-        'Tchéquie', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], nb_rectangles=2, nb_triangles=1, vertical=False
-    ),
+    DrapeauAvecFormes('Tchéquie', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], [UnTriangle, (Formes.RECTANGLE, 2)], vertical=False),
     #suisse
 ]
 

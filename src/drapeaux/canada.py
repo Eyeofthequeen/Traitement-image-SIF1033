@@ -1,15 +1,16 @@
 import cv2
 
 from src.drapeaux.drapeau import Drapeau
-from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles
+from src.validateur_formes_image import ValidateurFormesImage
 from src.image import Image
 from src.commun.outils import verifier_avec_marge_erreur
 
 
-class Canada(DrapeauAvecRectangles):
+class Canada(Drapeau):
     def __init__(self, nom, couleurs):
-        super().__init__(nom, couleurs, nb_rectangles=2)
+        super().__init__(nom, couleurs)
         self.nb_erables = 1
+        self.nb_rectangles = 2
 
     def _image_contient_erables(self, image):
         gris = image.convertir_niveaux_de_gris_ameliore()
@@ -28,5 +29,5 @@ class Canada(DrapeauAvecRectangles):
 
     def valider(self, image: Image):
         return (self.couleurs_valides(image.couleurs)
-                and self._image_contient_rectangles(image)
-                and self._image_contient_erables(image))
+                and self._image_contient_erables(image)
+                and ValidateurFormesImage.valider_rectangles(image, self.niveau, self.nb_rectangles, True))
