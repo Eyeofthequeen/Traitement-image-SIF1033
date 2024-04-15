@@ -1,0 +1,10 @@
+from .liban import Liban
+from .canada import Canada
+from .drapeau_avec_cercles import DrapeauAvecCercles
+from.drapeau_avec_etoiles import DrapeauAvecEtoiles
+from .drapeau_avec_etoiles_et_cercle import DrapeauAvecCerclesEtEtoiles
+from .drapeau_avec_rectangles import DrapeauAvecRectangles
+from .drapeau_avec_trapezes import DrapeauAvecTrapezes
+from .drapeau_avec_trapezes_et_rectangles import DrapeauAvecTrapezesEtRectangles
+from .drapeau_avec_triangles import DrapeauAvecTriangles
+from .drapeau_avec_triangles_et_rectangles import DrapeauAvecTrianglesEtRectangles

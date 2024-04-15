@@ -22,7 +22,7 @@ class DrapeauAvecTriangles(Drapeau):
             angle = np.arccos(np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2)))
             angles.append(np.degrees(angle))
 
-        if 175 < sum(angles) < 185:
+        if 178 < sum(angles) < 182:
             # On conserve une marge d'erreur raisonnable
             return True
 

@@ -4,17 +4,9 @@ import numpy as np
 from typing import List
 from matplotlib import pyplot as plt
 
-from src.drapeaux.drapeau_avec_triangles_et_rectangles import DrapeauAvecTrianglesEtRectangles
 from src.image import Image
 from src.commun.constantes import Formes, Couleurs, Difficultes
-from src.drapeaux.canada import Canada
-from src.drapeaux.liban import Liban
-from src.drapeaux.drapeau_avec_rectangles import DrapeauAvecRectangles
-from src.drapeaux.drapeau_avec_cercles import DrapeauAvecCercles
-from src.drapeaux.drapeau_avec_etoiles import DrapeauAvecEtoiles
-from src.drapeaux.drapeau_avec_triangles import DrapeauAvecTriangles
-from src.drapeaux.drapeau_avec_trapezes import DrapeauAvecTrapezes
-from src.drapeaux.drapeau_avec_etoiles_et_cercle import DrapeauAvecCerclesEtEtoiles
+from src.drapeaux import *
 
 
 Drapeaux = [
@@ -37,6 +29,7 @@ Drapeaux = [
     DrapeauAvecRectangles('Italie', [Couleurs.VERT, Couleurs.ROUGE, Couleurs.BLANC]),
     DrapeauAvecRectangles('Allemagne', [Couleurs.NOIR, Couleurs.ROUGE, Couleurs.JAUNE], vertical=False),
     DrapeauAvecRectangles('Pérou', [Couleurs.BLANC, Couleurs.ROUGE]),
+    DrapeauAvecTrapezesEtRectangles('Kuwait', [Couleurs.VERT, Couleurs.NOIR, Couleurs.BLANC, Couleurs.ROUGE], vertical=False, niveau=Difficultes.ELEVEE),
     # DrapeauAvecTrianglesEtRectangles(
         # 'Panarabisme', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.NOIR, Couleurs.VERT], vertical=False, niveau=Difficultes.ELEVEE
     # ),
@@ -46,7 +39,6 @@ Drapeaux = [
     DrapeauAvecTrianglesEtRectangles(
         'Tchéquie', [Couleurs.BLANC, Couleurs.ROUGE, Couleurs.BLEU], nb_rectangles=2, nb_triangles=1, vertical=False
     ),
-    DrapeauAvecTrapezes('Kuwait', [Couleurs.VERT, Couleurs.NOIR, Couleurs.BLANC, Couleurs.ROUGE])
     #suisse
 ]
 
